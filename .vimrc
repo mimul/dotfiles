@@ -2457,7 +2457,7 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-set fileencodings=iso-2022-kr,cp933,sjis,euc-kr,utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 
 set foldenable
 "set foldmethod=marker

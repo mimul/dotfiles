@@ -3,3 +3,5 @@ if [ -f ~/.bashrc ]; then
 fi
 export PATH=/usr/local/bin:$PATH
 eval "$(rbenv init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
