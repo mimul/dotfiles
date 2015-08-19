@@ -174,7 +174,7 @@ if stridx(&runtimepath, $NEOBUNDLEPATH) != -1
 
   " NeoBundle List
   NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/vimproc'
+  "NeoBundle 'Shougo/vimproc'
 
   if has('lua') && v:version >= 703
     NeoBundleLazy 'Shougo/neocomplete.vim'
@@ -183,7 +183,7 @@ if stridx(&runtimepath, $NEOBUNDLEPATH) != -1
   endif
 
   NeoBundle 'Shougo/unite-outline'
-  NeoBundle 'Shougo/unite-help'
+  #NeoBundle 'Shougo/unite-help'
   "NeoBundle 'Shougo/neomru.vim'
   "NeoBundle 'Shougo/vimfiler'
   "NeoBundle 'Shougo/vimshell'
