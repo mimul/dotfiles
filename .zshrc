@@ -61,6 +61,10 @@ export LESS_TERMCAP_so=$'\E[00;44;37m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+export M2_HOME=/usr/local/Cellar/maven/3.3.3/libexec
+export JAVA_HOME=$(/usr/libexec/java_home)
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_GITHUB_API_TOKEN=f388c6cf4e2a7da53d9aa13a36fdf56c4287910a
 # PATH
 export GOPATH=$HOME
 export PATH=$GOPATH/bin:/usr/local/bin/$PATH
