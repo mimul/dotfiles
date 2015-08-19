@@ -1,0 +1,34 @@
+[core]
+    pager = less -q -R
+	excludesfile = /Users/mimul/.gitignore
+[color]
+    ui = auto
+
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    df = diff
+    lg = log --graph --date=short --decorate=short --pretty=format:'%C(white)%h%Creset %C(blue)%cn%Creset %C(green)%cd%Creset %C(red reverse)%d%Creset %C(reset)%s' --all
+    dlg = log --stat --decorate=full --pretty=format:'%C(yellow)%h %C(green)%cr %C(blue)%cn%Creset %C(red reverse)%d%Creset %Creset%s %C(cyan)%b'
+    mlg = log --merges --pretty=format:'%C(yellow)%h %Cgreen%ci %Cblue%cn%Creset %C(red reverse)%d%Creset %Creset%s %C(cyan)%b'
+    sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+[help]
+    autocorrect = 1
+[push]
+    # Use the Git 1.x.x default to avoid errors on machines with old Git
+    # installations. To use `simple` instead, add this to your `~/.extra` file:
+    # `git config --global push.default simple`. See http://git.io/mMah-w.
+    default = matching
+[user]
+	name = mimul
+	email = hahojin@gmail.com
+[pager]
+    log = diff-highlight  | less -R
+    show = diff-highlight | less -R
+    diff = diff-highlight | less -R
+[diff]
+    tool = vimdiff
+    algorithm = histogram
+[ghq]
+	root = ~/src

@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# @(#) trunc v0.1.0 2015-08-05
+#
+# Usage:
+#   trunc file...
+#
+# Description:
+#   truncate files
+#
+######################################################################
+
+set -eu
+
+main() {
+    for f in "$@"
+    do
+        cat </dev/null >"$f"
+    done
+}
+
+main ${@+"$@"}

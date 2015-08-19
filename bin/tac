@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# @(#) tac v0.0.1 2015-08-05
+#
+# Usage:
+#   tac file...
+#
+# Description:
+#   tac displays the contents of the file in reverse order
+#
+######################################################################
+
+set -eu
+
+. $DOTPATH/etc/lib/vital.sh
+
+main() {
+    reverse "$@"
+}
+main ${@+"$@"}

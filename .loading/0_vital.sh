@@ -1,0 +1,1 @@
+../etc/lib/vital.sh
