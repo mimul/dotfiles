@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# @(#) new v0.0.1 2015-08-05
+#
+# Usage:
+#   new [project_name]
+#
+# Description:
+#   Make new project to Gopath
+#
+######################################################################
+
+set -eu
+
+main() {
+    local go="$GOPATH"/src/github.com/b4b4r07
+
+    if [ -z "${1:-}" ]; then
+        echo "$go"
+    else
+        local new="$go"/"$1"
+        if [ ! -d "$new" ]; then
+            mkdir -p "$new"
+        fi &&
+        echo "$new"
+    fi
+}
+main ${@+"$@"}

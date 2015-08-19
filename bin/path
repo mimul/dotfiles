@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# @(#) path v0.1.0 2015-08-05
+#
+# Usage:
+#   path file...
+#
+# Description:
+#   Get the absolute(full) pathname.
+#
+######################################################################
+
+set -eu
+
+. $DOTPATH/etc/lib/standard.sh
+
+function get_path()
+{
+    local -a args
+    [[ -z "${1:-}" ]] && args+=(".")
+    while (( $# > 0 ))
+    do
+        case "$1" in
+            -*)
+                if [[ "$1" == '-h' ]]; then
+                    echo "usage: $(basename $0) [-h|-ar] path..."
+                    echo "  -a: Get absolute path(default)"
+                    echo "  -r: Get relative path"
+                    return 0
+                fi
+                if [[ "$1" == '-a' ]]; then
+                    local option_a='true'
+                    shift
+                fi
+                if [[ "$1" == '-r' ]]; then
+                    local option_r='true'
+                    shift
+                fi
+                ;;
+            *)
+                args+=("$1")
+                shift
+                ;;
+        esac
+    done
+    
+    if [[ "${option_r:-}" == 'true' ]]; then
+        rel_path "$args"
+    else
+        abs_path "$args"
+    fi
+}
+
+if [[ $OSTYPE == darwin* ]]; then
+    get_path "$@" | (tee /dev/fd/3 | tr -d "\n" | pbcopy) 3>&1
+else
+    get_path "$@"
+fi
