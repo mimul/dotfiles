@@ -36,7 +36,7 @@ autoload run-help-svn
 unalias run-help
 alias help=run-help
 
-export LANGUAGE="en_US.UTF-8"
+export LANGUAGE="ko_KR.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
