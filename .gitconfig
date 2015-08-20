@@ -1,6 +1,6 @@
 [core]
     pager = less -q -R
-	excludesfile = /Users/mimul/.gitignore
+	excludesfile = ~/.gitignore
 [color]
     ui = auto
 

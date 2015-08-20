@@ -10,13 +10,6 @@
 "    ~~~~         \/__/         /:/  /       |:|  |        \:\__\     
 "                               \/__/         \|__|         \/__/     
 
-" README:
-" Copyright (c) 2013-2015 b4b4r07 (aka BABAROT) All Rights Reserved
-"
-" BABAROT
-" GitHub -> https://github.com/b4b4r07
-"
-
 " To write this vimrc, the most important thing is to observe the following
 " decencies.
 "
@@ -66,10 +59,6 @@ if exists('$SUDO_USER') || exists('$GIT_DIR')
 endif
 
 if has('vim_starting')
-  " Necesary for lots of cool vim things
-  "set nocompatible
-  " http://rbtnn.hateblo.jp/entry/2014/11/30/174749
-  " Define the entire vimrc encoding
   scriptencoding utf-8
   " Initialize runtimepath
   set runtimepath&
@@ -278,7 +267,7 @@ if stridx(&runtimepath, $NEOBUNDLEPATH) != -1
   "NeoBundle 'haya14busa/incsearch.vim'
   NeoBundle 'rhysd/try-colorscheme.vim'
   " Japanese help
-  NeoBundle 'vim-jp/vimdoc-ja'
+  "NeoBundle 'vim-jp/vimdoc-ja'
   " Vital
   NeoBundle 'vim-jp/vital.vim'
 
@@ -817,7 +806,8 @@ function! s:ls(path, bang)
     let filelist .= "\n".glob(path . "/.*[^.]")
   endif
   let &wildignore = save_ignore
-  let filelist = substitute(filelist, '', '^M', 'g')
+  let filelist = substitute(filelist, '
+', '^M', 'g')
 
   if empty(filelist)
     return s:error("no file")
@@ -2304,7 +2294,7 @@ set modelines=5
 set keywordprg=:help
 
 " Language help
-set helplang& helplang=ja
+set helplang& helplang=ko
 
 " Ignore case
 set ignorecase
@@ -2457,7 +2447,7 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=iso-2022-kr,cp933,sjis,euc-kr,utf-8
 
 set foldenable
 "set foldmethod=marker
@@ -2610,25 +2600,25 @@ command! -nargs=0 JunkFile call s:make_junkfile()
 " Handle encodings  {{{2
 " In particular effective when I am garbled in a terminal
 command! -bang -bar -complete=file -nargs=? Utf8      edit<bang> ++enc=utf-8 <args>
-command! -bang -bar -complete=file -nargs=? Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
-command! -bang -bar -complete=file -nargs=? Cp932     edit<bang> ++enc=cp932 <args>
-command! -bang -bar -complete=file -nargs=? Euc       edit<bang> ++enc=euc-jp <args>
+command! -bang -bar -complete=file -nargs=? Iso2022kr edit<bang> ++enc=iso-2022-kr <args>
+command! -bang -bar -complete=file -nargs=? Cp933     edit<bang> ++enc=cp933 <args>
+command! -bang -bar -complete=file -nargs=? Euc       edit<bang> ++enc=euc-kr <args>
 command! -bang -bar -complete=file -nargs=? Utf16     edit<bang> ++enc=ucs-2le <args>
 command! -bang -bar -complete=file -nargs=? Utf16be   edit<bang> ++enc=ucs-2 <args>
-command! -bang -bar -complete=file -nargs=? Jis       Iso2022jp<bang> <args>
-command! -bang -bar -complete=file -nargs=? Sjis      Cp932<bang> <args>
+command! -bang -bar -complete=file -nargs=? Jis       Iso2022kr<bang> <args>
+command! -bang -bar -complete=file -nargs=? Sjis      Cp933<bang> <args>
 command! -bang -bar -complete=file -nargs=? Unicode   Utf16<bang> <args>
 
 " Tried to make a file note version
 " Don't save it because dangerous.
 command! WUtf8      setlocal fenc=utf-8
-command! WIso2022jp setlocal fenc=iso-2022-jp
-command! WCp932     setlocal fenc=cp932
-command! WEuc       setlocal fenc=euc-jp
+command! WIso2022kr setlocal fenc=iso-2022-kr
+command! WCp933     setlocal fenc=cp933
+command! WEuc       setlocal fenc=euc-kr
 command! WUtf16     setlocal fenc=ucs-2le
 command! WUtf16be   setlocal fenc=ucs-2
-command! WJis       WIso2022jp
-command! WSjis      WCp932
+command! WJis       WIso2022kr
+command! WSjis      WCp933
 command! WUnicode   WUtf16
 
 " Appoint a line feed
@@ -3857,20 +3847,20 @@ if s:neobundled('vim-ref')
   function! neobundle#tapped.hooks.on_source(bundle) "{{{
     let g:ref_jquery_doc_path = $HOME . '/.vim/.bundle/jqapi'
     let g:ref_javascript_doc_path = $HOME . '/.vim/.bundle/jsref/htdocs'
-    let g:ref_wikipedia_lang = ['ja', 'en']
+    let g:ref_wikipedia_lang = ['ko', 'en']
     let g:ref_use_cache = 1
     let g:ref_source_webdict_sites = {
     \   'je': {
-    \     'url': 'http://eow.alc.co.jp/search?q=%s&ref=sa',
+    \     'url': 'https://www.google.co.kr/search?hl=ko&as_q=%s',
     \   },
     \   'ej': {
-    \     'url': 'http://eow.alc.co.jp/search?q=%s&ref=sa',
+    \     'url': 'https://www.google.co.kr/search?hl=ko&as_q=%s',
     \   },
     \   'etm': {
-    \     'url': 'http://home.alc.co.jp/db/owa/etm_sch?stg=1&instr=%s',
+    \     'url': 'https://www.google.co.kr/search?hl=ko&as_q=%s',
     \   },
     \   'wiki': {
-    \     'url': 'http://ja.wikipedia.org/wiki/%s',
+    \     'url': 'http://ko.wikipedia.org/wiki/%s',
     \   },
     \ }
     let g:ref_alc_encoding = 'utf-8'
@@ -4506,8 +4496,8 @@ endif
 
 " MISC: Useful code that does not enter the section are described here
 
-set fileencoding=japan
-set fileencodings=iso-2022-jp,utf-8,euc-jp,ucs-2le,ucs-2,cp932
+set fileencoding=korea
+set fileencodings=iso-2022-kr,utf-8,euc-kr,cp933
 
 function! s:tex()
   let file = a:0 ? a:1 : expand('%:p')
@@ -4734,7 +4724,7 @@ if filereadable(g:local_vimrc)
 endif
 
 set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-kr,euc-kr
 set fileformats=unix,dos,mac
 
 " golang {{{2
