@@ -1200,5 +1200,4 @@ if zsh_at_startup; then
         source ~/.localrc
     fi
 fi
-
 # vim:fdm=marker fdc=3 ft=zsh ts=4 sw=4 sts=4:
