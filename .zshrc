@@ -67,7 +67,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_GITHUB_API_TOKEN=f388c6cf4e2a7da53d9aa13a36fdf56c4287910a
 # PATH
 export GOPATH=$HOME
-export PATH=$GOPATH/bin:/usr/local/bin/$PATH
+export PATH=$GOPATH/bin:/usr/local/bin:$PATH
 
 # LS
 export LSCOLORS=exfxcxdxbxegedabagacad
