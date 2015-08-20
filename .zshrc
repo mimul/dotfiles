@@ -886,7 +886,6 @@ zshrc_keymappings() {
 # Completion {{{1
 zshrc_completion()
 {
-    # cf. http://voidy21.hatenablog.jp/entry/20090902/1251918174
     setopt auto_param_slash
     setopt mark_dirs
     setopt list_types
