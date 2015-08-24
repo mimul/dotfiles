@@ -81,3 +81,8 @@ Icon
 
 # Thumbnails
 ._*
+
+# Grunt
+node_modules/
+build/
+dist/
