@@ -757,7 +757,7 @@ zshrc_keymappings() {
     bindkey -v
 
     zle -N peco-select-git-add
-    zle -N do-enter
+    #zle -N do-enter
     zle -N peco-select-history
     zle -N peco-select-path
     zle -N start-tmux-if-it-is-not-already-started
@@ -845,7 +845,7 @@ zshrc_keymappings() {
 
     bindkey "^[[Z" reverse-menu-complete
 
-    bindkey '^m' do-enter
+    #bindkey '^m' do-enter
     bindkey '^r' peco-select-history
     bindkey '^x^f' peco-select-path
     bindkey '^x^g' peco-select-git-add
