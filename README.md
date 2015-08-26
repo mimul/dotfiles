@@ -14,29 +14,30 @@ $ chsh -s /bin/zsh # zsh 설정
 
 ### 1. 커맨드 관련 편리한 기능들
 ```
-cd - Enter : 과거 커맨드 중복 제거된 히스토리 보여줌
-cd Enter   : 현재창에서 과거에 입력한 커맨드 보여줌.
+$ cd - Enter : 과거 커맨드 중복 제거된 히스토리 보여줌
+$ cd Enter   : 현재창에서 과거에 입력한 커맨드 보여줌.
 ```
 
 ### 2. Tmux 단축키 정보
 - *기본 구성*
 	* 상태바에는 접속 wifi, 배터리, 날짜 정보가 보임.
 - *커맨드*
-```
-$ tmux ls : 기존 세션 확인.
-$ tmux -a : 기존 세션 붙기
-$ tmux list-window : tmux로 열린 세션 보기
-```
+    ```
+    $ tmux ls : 기존 세션 확인.
+    $ tmux -a : 기존 세션 붙기
+    $ tmux list-window : tmux로 열린 세션 보기
+    ```
 
 - *화면 창 조작*
-```
-$ control + t + h : active pane 이동(오른쪽).
-$ control + t + l : active pane 이동(왼).
-$ control + t + | : pane 수직 분할.
-$ control + t + - : pane 수평 분할.
-$ control + t + o : pane 순서대로 로테이트.
-$ control + t + q : pane 죽임.
-```
+    ```
+    - control + t + h : active pane 이동(오른쪽).
+    - control + t + l : active pane 이동(왼).
+    - control + t + | : pane 수직 분할.
+    - control + t + - : pane 수평 분할.
+    - control + t + o : pane 순서대로 로테이트.
+    - control + t + q : pane 죽임.
+    ```
+
 - *Copy Mode*
 	* 복사/붙여넣기
 	control + t + v 하면 Copy Mode로 바뀐다. 이것으로 버퍼에 문자열을 카피할 수도 있고,
