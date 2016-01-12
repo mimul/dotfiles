@@ -1,9 +1,9 @@
-#          _              
-#  _______| |__  _ __ ___ 
+#          _
+#  _______| |__  _ __ ___
 # |_  / __| '_ \| '__/ __|
-#  / /\__ \ | | | | | (__ 
+#  / /\__ \ | | | | | (__
 # /___|___/_| |_|_|  \___|
-#                         
+#
 #
 
 umask 022
@@ -462,9 +462,9 @@ zshrc_aliases()
     # Use plain vim.
     alias nvim='vim -N -u NONE -i NONE'
 
-    # The first word of each simple command, if unquoted, is checked to see 
-    # if it has an alias. [...] If the last character of the alias value is 
-    # a space or tab character, then the next command word following the 
+    # The first word of each simple command, if unquoted, is checked to see
+    # if it has an alias. [...] If the last character of the alias value is
+    # a space or tab character, then the next command word following the
     # alias is also checked for alias expansion
     alias sudo='sudo '
 
@@ -661,7 +661,7 @@ git_prompt_internal() {
             fi
 
             RPROMPT="$prompt "
-            RPROMPT+="at %{$fg[blue]%}[%~]%{$reset_color%}"
+            RPROMPT+="%{$fg[blue]%}[%~]%{$reset_color%}"
             RPROMPT+='${p_buffer_stack}'
         }
 
@@ -688,7 +688,7 @@ zshrc_prompt() {
     #           export GIT_PS1_DESCRIBE_STYLE="branch"
     #           export GIT_PS1_SHOWCOLORHINTS=0
     #           RPROMPT='%{'${fg[red]}'%}'`echo $(__git_ps1 "(%s)")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`'%{'${reset_color}'%}'
-    #           RPROMPT+=$' at %{${fg[blue]}%}[%~]%{${reset_color}%}'
+    #           RPROMPT+=$'%{${fg[blue]}%}[%~]%{${reset_color}%}'
     #           RPROMPT+='${p_buffer_stack}'
     #       }
     #       add-zsh-hook precmd r-prompt
@@ -711,7 +711,7 @@ zshrc_prompt() {
             vicmd) PROMPT_2="$fg[white]-- NORMAL --$reset_color $(git_prompt_internal)" ;;
             viins) PROMPT_2="$fg[green]-- INSERT --$reset_color $(git_prompt_internal)" ;;
         esac
-        PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}[%(?.%{${fg[green]}%}.%{${fg[red]}%})${HOST}%{${reset_color}%}]%# "
+        PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}[%(?.%{${fg[green]}%}.%{${fg[red]}%})${USER}%{${reset_color}%}]%# "
         zle reset-prompt
     }
 
@@ -720,7 +720,7 @@ zshrc_prompt() {
     zle -N zle-keymap-select
     zle -N edit-command-line
 
-    PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}[%(?.%{${fg[green]}%}.%{${fg[red]}%})${HOST}%{${reset_color}%}]%# "
+    PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}[%(?.%{${fg[green]}%}.%{${fg[red]}%})${USER}%{${reset_color}%}]%# "
     #PROMPT='%{$fg[blue]%}%~%{$reset_color%} %% '
 
     # R Prompt
@@ -739,7 +739,7 @@ zshrc_prompt() {
             export GIT_PS1_DESCRIBE_STYLE="branch"
             export GIT_PS1_SHOWCOLORHINTS=0
             RPROMPT='%{'${fg[red]}'%}'`echo $(__git_ps1 "(%s)")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`'%{'${reset_color}'%}'
-            RPROMPT+=$' at %{${fg[blue]}%}[%~]%{${reset_color}%}'
+            RPROMPT+=$'%{${fg[blue]}%}[%~]%{${reset_color}%}'
             RPROMPT+='${p_buffer_stack}'
         }
         add-zsh-hook precmd r-prompt
@@ -913,7 +913,7 @@ zshrc_completion()
     bindkey -M menuselect 'j' vi-down-line-or-history
     bindkey -M menuselect 'k' vi-up-line-or-history
     bindkey -M menuselect 'l' vi-forward-char
-    bindkey -M menuselect '^k' accept-and-infer-next-history 
+    bindkey -M menuselect '^k' accept-and-infer-next-history
 
     # Completing Groping
     zstyle ':completion:*:options' description 'yes'
